@@ -5,8 +5,9 @@ set_property(TARGET editor PROPERTY CXX_STANDARD 17)
 
 # Include all subdirectories
 add_subdirectory(Framework)
-add_subdirectory(LevelEditor)
-add_subdirectory(ImageEditor)
+#add_subdirectory(ImageEditor)
+add_subdirectory(KotorBuildPlanner)
+#add_subdirectory(LevelEditor)
 
 # Add main source file
 target_sources(editor
@@ -30,16 +31,16 @@ PUBLIC
 )
 
 # Make sure OpenGL is present
-find_package(OpenGL REQUIRED)
+#find_package(OpenGL REQUIRED)
 
 # Link to all libs necessary for editor and engine
 target_link_libraries(editor
 PRIVATE
-  elba
-  ${libs_root}/assimp-vc140-mt.lib
-  ${libs_root}/glew32.lib
-  ${libs_root}/glew32s.lib
-  ${libs_root}/glfw3.lib
+#  elba
+#  ${libs_root}/assimp-vc140-mt.lib
+#  ${libs_root}/glew32.lib
+#  ${libs_root}/glew32s.lib
+#  ${libs_root}/glfw3.lib
 
   ${OPENGL_LIBRARIES}
   ${qt_root}/lib/Qt5Core.lib
@@ -49,7 +50,7 @@ PRIVATE
 
 # Post-build step for copying dll's to same folder as exe
 add_custom_command(TARGET editor POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_directory ${dlls_root}/elba/ ${editor_out}
+#  COMMAND ${CMAKE_COMMAND} -E copy_directory ${dlls_root}/elba/ ${editor_out}
   COMMAND ${CMAKE_COMMAND} -E copy_directory ${dlls_root}/editor_only/ ${editor_out}
 )
 

@@ -2,8 +2,7 @@
 #include <qstylefactory.h>
 
 #include "Editor/Framework/MainWindow.hpp"
-#include "Editor/LevelEditor/LevelEditor.hpp"
-#include "Editor/ImageEditor/ImageEditor.hpp"
+#include "Editor/KotorBuildPlanner/KotorBuildPlanner.hpp"
 
 #define EDITOR_MODE
 
@@ -18,7 +17,7 @@ int main(int argc, char** argv)
   SetDarkTheme(app);
 
   Framework::MainWindow* mainWindow = new Editor::Framework::MainWindow();
-  LevelEditor* editor = mainWindow->LoadWorkspace<LevelEditor>(mainWindow);
+  KotorBuildPlanner* kotorBuildPlanner = mainWindow->LoadWorkspace<KotorBuildPlanner>(mainWindow);
 
   mainWindow->resize(1280, 800);
   mainWindow->show();
